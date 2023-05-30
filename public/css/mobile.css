@@ -1,0 +1,14 @@
+@media (max-width: 600px) {
+    body {
+        align-items: flex-start;
+    }
+
+    .container {
+        padding: 20px;
+    }
+    
+
+    .logo {
+        max-width: 150px;
+    }
+}
