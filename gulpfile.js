@@ -25,12 +25,8 @@ gulp.task('copy-assets', function () {
     .pipe(gulp.dest('public'));
 });
 
-// Watch for changes in JavaScript and static assets
-gulp.task('watch', function () {
-  gulp.series('scripts', 'copy-assets')(); // Run tasks initially
-  gulp.watch('js/*.js', gulp.series('scripts'));
-  gulp.watch(['css/*.css', 'image/*', 'html/*.html'], gulp.series('copy-assets'));
-});
+// Build task: runs scripts and copy-assets tasks
+gulp.task('build', gulp.series('scripts', 'copy-assets'));
 
-// Default task: runs all tasks and starts watching for changes
-gulp.task('default', gulp.series('scripts', 'copy-assets', 'watch'));
+// Default task: runs the build task
+gulp.task('default', gulp.series('build'));
